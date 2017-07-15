@@ -3,19 +3,20 @@
 
  /$$$$$$$$ /$$                 /$$$$$$$$                        /$$$$$$$$                 
 |__  $$__/|__/                |__  $$__/                       |__  $$__/                 
-   | $$    /$$  /$$$$$$$         | $$  /$$$$$$   /$$$$$$$         | $$  /$$$$$$   /$$$$$$ 
+   | $$    /$$  /$$$$$$$         | $$  /$$$$$$   /$$$$$$$         | $$  /$$$$$$   /$$$$$$
    | $$   | $$ /$$_____/         | $$ |____  $$ /$$_____/         | $$ /$$__  $$ /$$__  $$
    | $$   | $$| $$               | $$  /$$$$$$$| $$               | $$| $$  \ $$| $$$$$$$$
    | $$   | $$| $$               | $$ /$$__  $$| $$               | $$| $$  | $$| $$_____/
    | $$   | $$|  $$$$$$$         | $$|  $$$$$$$|  $$$$$$$         | $$|  $$$$$$/|  $$$$$$$
    |__/   |__/ \_______/         |__/ \_______/ \_______/         |__/ \______/  \_______/
- 
+
                                   Tech Test for 8th Light
 ```                                                                                          
-                                                                                        
+![build status](https://travis-ci.org/wemmm/tic-tac-toe-tech-test.svg?branch=master)
+
 ## What's Going On Here?
 
-I am refactoring an existing Tic Tac Toe game that runs in the command line. I've chosen to use the Ruby version of the challenge, and after testing and refactoring, I'll be implementing some new features. 
+I am refactoring an existing Tic Tac Toe game that runs in the command line. I've chosen to use the Ruby version of the challenge, and after testing and refactoring, I'll be implementing some new features.
 
 ## Aims
 
@@ -35,7 +36,7 @@ confusing to see the spot thatâ€™s selected and the board all on the screen. Itâ
 
 ## Tech I Am Using
 
-* Ruby 
+* Ruby
 * RSpec- a test framework that I'm syntactically familiar with.
 * SimpleCov- so I can get an idea of my test coverage.
 * RuboCop- to help keep my code compliant with [the Ruby Community Style Guide](https://github.com/bbatsov/ruby-style-guide).
