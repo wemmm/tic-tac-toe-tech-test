@@ -12,4 +12,14 @@ describe Game do
       expect(game.game_is_over(['X', 'O', 'X', 'O', 'O', 'X', 'X'])).to be false
     end
   end
+
+  describe '#tie' do
+    it 'returns true if the game is tied' do
+      expect(game.tie(['X', 'O', 'X'])).to be true
+    end
+
+    it 'returns false if the game is not tied' do
+      expect(game.tie(['X', 'X', '3'])).to be false
+    end
+  end
 end
