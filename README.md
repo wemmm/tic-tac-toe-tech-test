@@ -12,7 +12,9 @@
 
                                   Tech Test for 8th Light
 ```                                                                                          
-![build status](https://travis-ci.org/wemmm/tic-tac-toe-tech-test.svg?branch=master)
+[![Code Climate](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test/badges/gpa.svg)](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test)
+[![Issue Count](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test/badges/issue_count.svg)](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test)
+[![Test Coverage](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test/badges/coverage.svg)](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test/coverage)
 
 ## What's Going On Here?
 
