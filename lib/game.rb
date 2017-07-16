@@ -100,5 +100,6 @@ class Game
 
 end
 
-game = Game.new
-game.start_game
+# The below is commented out to stop game executing when running tests
+# game = Game.new
+# game.start_game
