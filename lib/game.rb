@@ -1,3 +1,5 @@
+require_relative 'board'
+
 class Game
 
 # Attribute reader added for testing purposes

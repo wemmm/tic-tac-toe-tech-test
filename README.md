@@ -10,7 +10,7 @@
    | $$   | $$|  $$$$$$$         | $$|  $$$$$$$|  $$$$$$$         | $$|  $$$$$$/|  $$$$$$$
    |__/   |__/ \_______/         |__/ \_______/ \_______/         |__/ \______/  \_______/
 
-                                  Tech Test for 8th Light
+                                       Tech Test
 ```                                                                                          
 [![Code Climate](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test/badges/gpa.svg)](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test)
 [![Issue Count](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test/badges/issue_count.svg)](https://codeclimate.com/github/wemmm/tic-tac-toe-tech-test)
@@ -48,4 +48,4 @@ I've started out with some tests for the existing code to help me get my head ar
 
 ## Next Steps
 
-Once the smaller methods are refactored, I should be able to look at extracting classes- having everything in one class is really not ideal! I will avoid implementing any new functionality until the existing program has been refactored to be much more object oriented. 
+Once the smaller methods are refactored, I should be able to look at extracting classes- having everything in one class is really not ideal! I will avoid implementing any new functionality until the existing program has been refactored to be much more object oriented.
