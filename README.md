@@ -41,8 +41,11 @@ confusing to see the spot thatâ€™s selected and the board all on the screen. Itâ
 * Ruby
 * RSpec- a test framework that I'm syntactically familiar with.
 * SimpleCov- so I can get an idea of my test coverage.
-* RuboCop- to help keep my code compliant with [the Ruby Community Style Guide](https://github.com/bbatsov/ruby-style-guide).
 
 ## My Approach
 
-The first thing that the code base needs is a robust set of tests! Past that, I'm hoping to then extract methods and from those methods, classes.
+I've started out with some tests for the existing code to help me get my head around how it's working. The majority of the logic is being pulled into the start_game method, so my next step will be to refactor the internal (potentially private) methods of the game in a TDD-driven way.
+
+## Next Steps
+
+Once the smaller methods are refactored, I should be able to look at extracting classes- having everything in one class is really not ideal! I will avoid implementing any new functionality until the existing program has been refactored to be much more object oriented. 
