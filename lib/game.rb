@@ -6,22 +6,21 @@ class Game
   attr_reader :board
 
   def initialize
-    @board = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
+    @board = Board.new
     @com = "X" # the computer's marker
     @hum = "O" # the user's marker
   end
 
   def start_game(stdout: $stdout)
-    # start by printing the board
-    stdout.puts " #{@board[0]} | #{@board[1]} | #{@board[2]} \n===+===+===\n #{@board[3]} | #{@board[4]} | #{@board[5]} \n===+===+===\n #{@board[6]} | #{@board[7]} | #{@board[8]} \n"
+    @board.print_board
     stdout.puts "Enter [0-8]:"
     # loop through until the game was won or tied
-    until game_is_over(@board) || tie(@board)
+    until game_is_over(@board.squares) || tie(@board.squares)
       get_human_spot
-      if !game_is_over(@board) && !tie(@board)
+      if !game_is_over(@board.squares) && !tie(@board.squares)
         eval_board
       end
-      stdout.puts " #{@board[0]} | #{@board[1]} | #{@board[2]} \n===+===+===\n #{@board[3]} | #{@board[4]} | #{@board[5]} \n===+===+===\n #{@board[6]} | #{@board[7]} | #{@board[8]} \n"
+      @board.print_board
     end
     stdout.puts "Game over"
   end
@@ -30,8 +29,8 @@ class Game
     spot = nil
     until spot
       spot = stdin.gets.chomp.to_i
-      if @board[spot] != "X" && @board[spot] != "O"
-        @board[spot] = @hum
+      if @board.squares[spot] != "X" && @board.squares[spot] != "O"
+        @board.squares[spot] = @hum
       else
         spot = nil
       end
@@ -41,13 +40,13 @@ class Game
   def eval_board
     spot = nil
     until spot
-      if @board[4] == "4"
+      if @board.squares[4] == "4"
         spot = 4
-        @board[spot] = @com
+        @board.squares[spot] = @com
       else
-        spot = get_best_move(@board, @com)
-        if @board[spot] != "X" && @board[spot] != "O"
-          @board[spot] = @com
+        spot = get_best_move(@board.squares, @com)
+        if @board.squares[spot] != "X" && @board.squares[spot] != "O"
+          @board.squares[spot] = @com
         else
           spot = nil
         end
@@ -55,7 +54,7 @@ class Game
     end
   end
 
-  def get_best_move(board, next_player, depth = 0, best_score = {})
+  def get_best_move(board, next_player)
     available_spaces = []
     best_move = nil
     board.each do |s|
@@ -106,6 +105,6 @@ class Game
 
 end
 
-# # The below is commented out to stop game executing when running tests
+# The below is commented out to stop game executing when running tests
 # game = Game.new
 # game.start_game

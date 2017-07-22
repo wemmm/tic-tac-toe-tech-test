@@ -7,20 +7,20 @@ describe Game do
     it 'adds the player symbol to the game board' do
       allow($stdin).to receive(:gets).and_return("1")
       game.get_human_spot
-      expect(game.board[1]).to eq "O"
+      expect(game.board.squares[1]).to eq "O"
     end
 
     it 'does not accept non integer input' do
       allow($stdin).to receive(:gets).and_return("One")
       game.get_human_spot
-      expect(game.board[1]).not_to eq "O"
+      expect(game.board.squares[1]).not_to eq "O"
     end
   end
 
   describe '#eval_board' do
     it 'will place a marker on the centre square if possible' do
       game.eval_board
-      expect(game.board[4]).to eq "X"
+      expect(game.board.squares[4]).to eq "X"
     end
   end
 
