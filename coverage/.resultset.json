@@ -67,8 +67,21 @@
         null,
         null,
         null
+      ],
+      "/Users/jenniferwem/Projects/tic-tac-toe-tech-test/spec/player_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1500758614
+    "timestamp": 1500893109
   }
 }

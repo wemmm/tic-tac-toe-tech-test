@@ -1,4 +1,5 @@
 require_relative 'board'
+require_relative 'player'
 
 class Game
 
@@ -8,7 +9,7 @@ class Game
   def initialize
     @board = Board.new
     @com = "X" # the computer's marker
-    @hum = "O" # the user's marker
+    @player = Player.new
   end
 
   def start_game(stdout: $stdout)
@@ -30,7 +31,7 @@ class Game
     until spot
       spot = stdin.gets.chomp.to_i
       if @board.squares[spot] != "X" && @board.squares[spot] != "O"
-        @board.squares[spot] = @hum
+        @board.squares[spot] = @player.marker
       else
         spot = nil
       end
@@ -69,7 +70,7 @@ class Game
         board[as.to_i] = as
         return best_move
       else
-        board[as.to_i] = @hum
+        board[as.to_i] = @player.marker
         if game_is_over(board)
           best_move = as.to_i
           board[as.to_i] = as
