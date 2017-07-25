@@ -1,5 +1,6 @@
 require_relative 'board'
 require_relative 'player'
+require_relative 'computer_player'
 
 class Game
 
@@ -8,7 +9,7 @@ class Game
 
   def initialize
     @board = Board.new
-    @com = "X" # the computer's marker
+    @computer_player = ComputerPlayer.new
     @player = Player.new
   end
 
@@ -43,11 +44,11 @@ class Game
     until spot
       if @board.squares[4] == "4"
         spot = 4
-        @board.squares[spot] = @com
+        @board.squares[spot] = @computer_player.marker
       else
-        spot = get_best_move(@board.squares, @com)
+        spot = get_best_move(@board.squares, @computer_player.marker)
         if @board.squares[spot] != "X" && @board.squares[spot] != "O"
-          @board.squares[spot] = @com
+          @board.squares[spot] = @computer_player.marker
         else
           spot = nil
         end
@@ -64,7 +65,7 @@ class Game
       end
     end
     available_spaces.each do |as|
-      board[as.to_i] = @com
+      board[as.to_i] = @computer_player.marker
       if game_is_over(board)
         best_move = as.to_i
         board[as.to_i] = as
