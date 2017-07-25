@@ -59,33 +59,33 @@ class Game
   def get_best_move(board, next_player)
     available_spaces = []
     best_move = nil
-    board.each do |s|
-      if s != "X" && s != "O"
-        available_spaces << s
+    board.each do |space|
+      if space != "X" && space != "O"
+        available_spaces << space
       end
     end
-    available_spaces.each do |as|
-      board[as.to_i] = @computer_player.marker
+    available_spaces.each do |space|
+      board[space.to_i] = @computer_player.marker
       if game_is_over(board)
-        best_move = as.to_i
-        board[as.to_i] = as
+        best_move = space.to_i
+        board[space.to_i] = space
         return best_move
       else
-        board[as.to_i] = @player.marker
+        board[space.to_i] = @player.marker
         if game_is_over(board)
-          best_move = as.to_i
-          board[as.to_i] = as
+          best_move = space.to_i
+          board[space.to_i] = space
           return best_move
         else
-          board[as.to_i] = as
+          board[space.to_i] = space
         end
       end
     end
     if best_move
       return best_move
     else
-      n = rand(0..available_spaces.count)
-      return available_spaces[n].to_i
+      number = rand(0..available_spaces.count)
+      return available_spaces[number].to_i
     end
   end
 
