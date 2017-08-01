@@ -31,7 +31,7 @@ class Game
     spot = nil
     until spot
       spot = stdin.gets.chomp.to_i
-      if @board.squares[spot] != "X" && @board.squares[spot] != "O"
+      if @board.squares[spot] != @player.marker && @board.squares[spot] != @computer_player.marker
         @board.squares[spot] = @player.marker
       else
         spot = nil
@@ -47,7 +47,7 @@ class Game
         @board.squares[spot] = @computer_player.marker
       else
         spot = get_best_move(@board.squares, @computer_player.marker)
-        if @board.squares[spot] != "X" && @board.squares[spot] != "O"
+        if @board.squares[spot] != @player.marker && @board.squares[spot] != @computer_player.marker
           @board.squares[spot] = @computer_player.marker
         else
           spot = nil
@@ -60,7 +60,7 @@ class Game
     available_spaces = []
     best_move = nil
     board.each do |space|
-      if space != "X" && space != "O"
+      if space != @player.marker && space != @computer_player.marker
         available_spaces << space
       end
     end
@@ -89,20 +89,20 @@ class Game
     end
   end
 
-  def game_is_over(b)
+  def game_is_over(board)
 
-    [b[0], b[1], b[2]].uniq.length == 1 ||
-    [b[3], b[4], b[5]].uniq.length == 1 ||
-    [b[6], b[7], b[8]].uniq.length == 1 ||
-    [b[0], b[3], b[6]].uniq.length == 1 ||
-    [b[1], b[4], b[7]].uniq.length == 1 ||
-    [b[2], b[5], b[8]].uniq.length == 1 ||
-    [b[0], b[4], b[8]].uniq.length == 1 ||
-    [b[2], b[4], b[6]].uniq.length == 1
+    [board[0], board[1], board[2]].uniq.length == 1 ||
+    [board[3], board[4], board[5]].uniq.length == 1 ||
+    [board[6], board[7], board[8]].uniq.length == 1 ||
+    [board[0], board[3], board[6]].uniq.length == 1 ||
+    [board[1], board[4], board[7]].uniq.length == 1 ||
+    [board[2], board[5], board[8]].uniq.length == 1 ||
+    [board[0], board[4], board[8]].uniq.length == 1 ||
+    [board[2], board[4], board[6]].uniq.length == 1
   end
 
-  def tie(b)
-    b.all? { |s| s == "X" || s == "O" }
+  def tie(board)
+    board.all? { |space| space == @computer_player.marker || space == @player.marker }
   end
 
 end

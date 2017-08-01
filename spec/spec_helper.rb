@@ -1,4 +1,6 @@
 require 'game'
+require 'player'
+require 'computer_player'
 require 'simplecov'
 require 'simplecov-console'
 

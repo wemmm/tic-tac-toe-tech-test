@@ -1,7 +1,11 @@
 require_relative '../lib/game'
+require_relative '../lib/player'
+require_relative '../lib/computer_player'
 
 describe Game do
   subject(:game) { described_class.new }
+  subject(:player) { Player.new }
+  subject(:computer_player) { ComputerPlayer.new }
 
   describe '#get_human_spot' do
     it 'adds the player symbol to the game board' do
@@ -36,7 +40,8 @@ describe Game do
 
   describe '#tie' do
     it 'returns true if the game is tied' do
-      expect(game.tie(['X', 'O', 'X'])).to be true
+      p computer_player
+      expect(game.tie([computer_player.marker, player.marker, computer_player.marker])).to be true
     end
 
     it 'returns false if the game is not tied' do
