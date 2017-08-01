@@ -6,4 +6,8 @@ class ComputerPlayer
   def initialize
     @marker = "X"
   end
+
+  def change_marker(new_marker)
+    @marker = new_marker
+  end
 end

@@ -6,4 +6,8 @@ class Player
   def initialize
     @marker = "O"
   end
+
+  def change_marker(new_marker)
+    @marker = new_marker
+  end
 end
