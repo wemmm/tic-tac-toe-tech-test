@@ -27,11 +27,11 @@ class Game
     stdout.puts "Game over"
   end
 
-  def get_human_spot(stdin: $stdin)
+  def get_human_spot(stdin: $stdin, stdout: $stdout)
     spot = nil
     until spot
       spot = stdin.gets.chomp.to_i
-      if @board.squares[spot] != @player.marker && @board.squares[spot] != @computer_player.marker
+      if @board.empty_square(spot)
         @board.squares[spot] = @player.marker
       else
         spot = nil
@@ -39,7 +39,7 @@ class Game
     end
   end
 
-  def eval_board
+  def eval_board(stdout: $stdout)
     spot = nil
     until spot
       if @board.squares[4] == "4"
@@ -47,7 +47,7 @@ class Game
         @board.squares[spot] = @computer_player.marker
       else
         spot = get_best_move(@board.squares, @computer_player.marker)
-        if @board.squares[spot] != @player.marker && @board.squares[spot] != @computer_player.marker
+        if @board.empty_square(spot)
           @board.squares[spot] = @computer_player.marker
         else
           spot = nil
@@ -90,7 +90,6 @@ class Game
   end
 
   def game_is_over(board)
-
     [board[0], board[1], board[2]].uniq.length == 1 ||
     [board[3], board[4], board[5]].uniq.length == 1 ||
     [board[6], board[7], board[8]].uniq.length == 1 ||

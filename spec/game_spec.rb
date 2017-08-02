@@ -40,7 +40,6 @@ describe Game do
 
   describe '#tie' do
     it 'returns true if the game is tied' do
-      p computer_player
       expect(game.tie([computer_player.marker, player.marker, computer_player.marker])).to be true
     end
 
