@@ -41,11 +41,14 @@ confusing to see the spot thatâ€™s selected and the board all on the screen. Itâ
 * Ruby
 * RSpec- a test framework that I'm syntactically familiar with.
 * SimpleCov- so I can get an idea of my test coverage.
+* Code Climate- to help me see issues with the code and get a GPA score for the climate.
 
 ## My Approach
 
 I've started out with some tests for the existing code to help me get my head around how it's working. The majority of the logic is being pulled into the start_game method, so my next step will be to refactor the internal (potentially private) methods of the game in a TDD-driven way.
 
+I've extracted Player, ComputerPlayer and Board classes from the original Game class, and refactored some of the longer methods (although they still need further work to adhere to SOLID principles!). Now that the code is a bit more separated and readable, I intend to begin adding some of the new features.
+
 ## Next Steps
 
-Once the smaller methods are refactored, I should be able to look at extracting classes- having everything in one class is really not ideal! I will avoid implementing any new functionality until the existing program has been refactored to be much more object oriented.
+Properly implement the ability to change the symbols to a user inputted value (methods are already there, but inaccessible). This will probably be part of a proper 'menu' type interface that runs before the game starts, which will also later include the ability to specify player types (human/computer) and which player goes first. 
