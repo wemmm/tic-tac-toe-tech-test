@@ -8,11 +8,4 @@ describe ComputerPlayer do
       expect(computer_player.marker).to eq("X")
     end
   end
-
-  describe '#change_marker' do
-    it 'can change its default marker to a user inputted value' do
-      computer_player.change_marker('Y')
-      expect(computer_player.marker).to eq('Y')
-    end
-  end
 end

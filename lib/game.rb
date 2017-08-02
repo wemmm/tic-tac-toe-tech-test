@@ -13,6 +13,14 @@ class Game
     @player = Player.new
   end
 
+  def settings(stdout: $stdout, stdin: $stdin)
+    stdout.puts 'Please enter marker for player 1:'
+    @player.marker = stdin.gets.chomp
+    stdout.puts 'Please enter marker for player 2:'
+    @computer_player.marker = stdin.gets.chomp
+    start_game
+  end
+
   def start_game(stdout: $stdout)
     @board.print_board
     stdout.puts "Enter [0-8]:"
@@ -27,7 +35,7 @@ class Game
     stdout.puts "Game over"
   end
 
-  def get_human_spot(stdin: $stdin, stdout: $stdout)
+  def get_human_spot(stdin: $stdin)
     spot = nil
     until spot
       spot = stdin.gets.chomp.to_i
@@ -57,8 +65,8 @@ class Game
   end
 
   def get_best_move(board, next_player)
-    available_spaces = []
     best_move = nil
+    available_spaces = []
     board.each do |space|
       if space != @player.marker && space != @computer_player.marker
         available_spaces << space
@@ -106,6 +114,6 @@ class Game
 
 end
 
-# The below is commented out to stop game executing when running tests
+# # The below is commented out to stop game executing when running tests
 # game = Game.new
-# game.start_game
+# game.settings
